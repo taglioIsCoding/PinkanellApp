@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.bottomLeft,
                   child: FloatingActionButton(
                     onPressed: _incrementCounter,
-                    tooltip: 'Goal',
+                    tooltip: 'Goal player 1',
                     child: Icon(Icons.add),
                   ),
                 ),
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.bottomRight,
                   child: FloatingActionButton(
                     onPressed: _incrementCounter2,
-                    tooltip: 'Goal',
+                    tooltip: 'Goal player 2',
                     child: Icon(Icons.add),
                   ),
                 ),
