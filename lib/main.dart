@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.black,
       ),
       home: MyHomePage(title: 'Pinkanell home page'),
+      color: Colors.black,
     );
   }
 }

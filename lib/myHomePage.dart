@@ -40,7 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _incrementCounter2(){
-    _counter2++;
+    setState(() {
+      _counter2++;
+    });
   }
 
   @override
@@ -52,79 +54,61 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Row(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              '$_p1'
-            ),
-            Text(
-              '$_p2'
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            Text(
-              '$_counter2',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            Stack(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: FloatingActionButton(
-                    onPressed: _incrementCounter,
-                    tooltip: 'Goal player 1',
-                    child: Icon(Icons.add),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: FloatingActionButton(
-                    onPressed: _incrementCounter2,
-                    tooltip: 'Goal player 2',
-                    child: Icon(Icons.add),
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
+
+       appBar: new AppBar(
+       backgroundColor: Colors.black,
+       title: const Text ("Regesta pinkanel"),
+
+       ),
+           body: Column(children: <Widget>[
+           Row(//ROW 1
+               children: [
+             Container(
+               //color: Colors.orange,
+               //margin: EdgeInsets.all(25.0),
+               child: Text(
+                 _p1
+               ),
+             ),
+             Container(
+               //color: Colors.blue,
+               //margin: EdgeInsets.all(25.0),
+               child: Text(
+                 "  "
+               ),
+             ),
+             Container(
+               //color: Colors.purple,
+               //margin: EdgeInsets.all(25.0),
+               child: Text(
+                 _p2
+               ),
+             )
+           ]),
+           Row(// ROW 2
+               children: [
+             Container(
+
+               child: Text(
+              '$_counter'
+              ),
+             ),
+             Container(
+               child: Text(
+                 " : "
+               ),
+             ),
+             Container(
+
+               child: Text(
+                 '$_counter'
+               ),
+             ),
+           ]),
+         ]));
+   }
+ }
 
 
 
-      ),
 
-      /*
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Goal',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-      */
-    );
-  }
-}
