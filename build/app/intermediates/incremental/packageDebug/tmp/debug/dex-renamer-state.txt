@@ -1,4 +1,4 @@
-#Mon Jun 24 17:13:05 CEST 2019
+#Thu Jul 04 12:28:05 CEST 2019
 base.0=/Users/micheletagliani/AndroidStudioProjects/pinkanel_app/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

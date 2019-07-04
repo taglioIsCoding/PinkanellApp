@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
-     });
+    });
   }
 
   void _incrementCounter2() {
@@ -46,9 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
-
-    @override
+  @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -61,50 +59,61 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text('Pinkanell Regesta'),
           backgroundColor: Colors.black,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Text("p1"),
-                new Text("       "),
-                new Text("p2")
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Text("$_counter"),
-                new Text("   :   "),
-                new Text("$_counter2"),
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Center(
-                  child: new Container(
-                    height: 50,
-                    width: 50,
-                    child: IconButton(
-                        onPressed: _incrementCounter, icon: Icon(Icons.add_circle)),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Text("P1", style: Theme.of(context).textTheme.headline),
+                  new Text("       "),
+                  new Text("P2", style: Theme.of(context).textTheme.headline)
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Text("$_counter",
+                      style: Theme.of(context).textTheme.headline),
+                  new Text("   :   "),
+                  new Text("$_counter2",
+                      style: Theme.of(context).textTheme.headline),
 
+                ],
+              ),
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Center(
+                    child: new Container(
+                      height: 50,
+                      width: 50,
+                      child: IconButton(
+                          onPressed: _incrementCounter,
+                          icon: Icon(Icons.add_circle),
+                          splashColor: Colors.red),
+                    ),
                   ),
-                ),
-                new Container(
+                  new Container(
                     height: 50,
                     width: 50,
                     child: IconButton(
-                        onPressed: _incrementCounter2, icon: Icon(Icons.add_circle)),
-                    ),
-              ],
-            ),
-          ],
-        ));
+                        onPressed: _incrementCounter2,
+                        icon: Icon(Icons.add_circle),
+                        splashColor: Colors.green),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+    );
   }
 }
