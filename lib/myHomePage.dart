@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key,
-    this.title}) :
-        super(key: key);
-
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -23,8 +19,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  int _counter2 = 0;
+  static int _counter = 0;
+  static int _counter2 = 0;
   String _p1 = "Player 1";
   String _p2 = "Player 2";
 
@@ -36,16 +32,23 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
-    });
+     });
   }
 
-  void _incrementCounter2(){
+  void _incrementCounter2() {
     setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
       _counter2++;
     });
   }
 
-  @override
+
+
+    @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -54,61 +57,54 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Pinkanell Regesta'),
+          backgroundColor: Colors.black,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Text("p1"),
+                new Text("       "),
+                new Text("p2")
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Text("$_counter"),
+                new Text("   :   "),
+                new Text("$_counter2"),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Center(
+                  child: new Container(
+                    height: 50,
+                    width: 50,
+                    child: IconButton(
+                        onPressed: _incrementCounter, icon: Icon(Icons.add_circle)),
 
-       appBar: new AppBar(
-       backgroundColor: Colors.black,
-       title: const Text ("Regesta pinkanel"),
-
-       ),
-           body: Column(children: <Widget>[
-           Row(//ROW 1
-               children: [
-             Container(
-               //color: Colors.orange,
-               //margin: EdgeInsets.all(25.0),
-               child: Text(
-                 _p1
-               ),
-             ),
-             Container(
-               //color: Colors.blue,
-               //margin: EdgeInsets.all(25.0),
-               child: Text(
-                 "  "
-               ),
-             ),
-             Container(
-               //color: Colors.purple,
-               //margin: EdgeInsets.all(25.0),
-               child: Text(
-                 _p2
-               ),
-             )
-           ]),
-           Row(// ROW 2
-               children: [
-             Container(
-
-               child: Text(
-              '$_counter'
-              ),
-             ),
-             Container(
-               child: Text(
-                 " : "
-               ),
-             ),
-             Container(
-
-               child: Text(
-                 '$_counter'
-               ),
-             ),
-           ]),
-         ]));
-   }
- }
-
-
-
-
+                  ),
+                ),
+                new Container(
+                    height: 50,
+                    width: 50,
+                    child: IconButton(
+                        onPressed: _incrementCounter2, icon: Icon(Icons.add_circle)),
+                    ),
+              ],
+            ),
+          ],
+        ));
+  }
+}
